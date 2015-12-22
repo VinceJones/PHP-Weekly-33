@@ -5,114 +5,23 @@
  * @author Vince Jones <vjones@nerdery.com>
  */
 
-//use Entity\Partner;
-//
-//require_once 'vendor/autoload.php';
 
+use PHPWeekly\Entity\Partner;
 
-/**
- * Class Partner
- * @package challenge\Entity
- */
-class Partner
-{
+require_once 'vendor/autoload.php';
 
-    /**
-     * @param string $name
-     * @param string $discipline
-     * @param $partnerPreviousResponse
-     * @param $playerPreviousResponse
-     */
-    public function __construct($name = 'Buck', $discipline = 'php', $partnerPreviousResponse = "", $playerPreviousResponse = "")
-    {
-        $this->name = $name;
-        $this->discipline = $discipline;
-        $this->partnerPreviousResponse = $partnerPreviousResponse;
-        $this->playerPreviousResponse = $playerPreviousResponse;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDiscipline()
-    {
-        return $this->discipline;
-    }
-
-    /**
-     * @param string $discipline
-     * @return Partner
-     */
-    public function setDiscipline($discipline)
-    {
-        $this->discipline = $discipline;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     * @return Partner
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPartnerPreviousResponse()
-    {
-        return $this->partnerPreviousResponse;
-    }
-
-    /**
-     * @param string $partnerPreviousResponse
-     * @return Partner
-     */
-    public function setPartnerPreviousResponse($partnerPreviousResponse)
-    {
-        $this->partnerPreviousResponse = $partnerPreviousResponse;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPlayerPreviousResponse()
-    {
-        return $this->playerPreviousResponse;
-    }
-
-    /**
-     * @param string $playerPreviousResponse
-     * @return Partner
-     */
-    public function setPlayerPreviousResponse($playerPreviousResponse)
-    {
-        $this->playerPreviousResponse = $playerPreviousResponse;
-        return $this;
-    }
-}
 
 $partnerName = $argv[1];
 $partnerDiscipline = $argv[2];
-$partnerPreviousResponse = $argv[3];
-$playerPreviousResponse = $argv[4];
+$argv[3] === 'confess' || $argv[3] === 'silent' ? $partnerPreviousResponse = $argv[3] : $partnerPreviousResponse = 'silent';
+$argv[4] === 'confess' || $argv[4] === 'silent' ? $partnerPreviousResponse = $argv[4] : $partnerPreviousResponse = 'silent';
+
 
 $partner = new Partner($partnerName, $partnerDiscipline, $partnerPreviousResponse, $playerPreviousResponse);
 
 
 echo $partner->getName().PHP_EOL;
+echo $partner->getPartnerPreviousResponse().PHP_EOL;
 
 
 //// __contruct

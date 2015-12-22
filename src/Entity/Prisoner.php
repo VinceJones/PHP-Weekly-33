@@ -1,12 +1,12 @@
 <?php
 
-namespace Entity;
+namespace PHPWeekly\Entity;
 
 /**
  * Class Partner
  * @package challenge\Entity
  */
-class Partner
+class Prisoner
 {
 
     /**
