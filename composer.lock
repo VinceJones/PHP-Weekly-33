@@ -1,0 +1,60 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "5ca2e66a01e4e6768c4c196542c465c3",
+    "content-hash": "b8609e8fd0d13eabbaa911cd37168a18",
+    "packages": [
+        {
+            "name": "epfremme/collections",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/epfremmer/collections.git",
+                "reference": "52dd3ec29811bd3947cdd8b5540ee0ea42b7e670"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/epfremmer/collections/zipball/52dd3ec29811bd3947cdd8b5540ee0ea42b7e670",
+                "reference": "52dd3ec29811bd3947cdd8b5540ee0ea42b7e670",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.1",
+                "scrutinizer/ocular": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Epfremme\\": "src/",
+                    "Epfremme\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "epfremme",
+                    "email": "epfremme@nerdery.com"
+                }
+            ],
+            "description": "PHP Collection Classes",
+            "time": "2015-12-07 05:41:32"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
