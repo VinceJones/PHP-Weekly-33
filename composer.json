@@ -12,8 +12,5 @@
     "psr-4": {
       "PHPWeekly\\": "src/"
     }
-  },
-  "require": {
-    "epfremme/collections": "^1.0"
   }
 }
