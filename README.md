@@ -58,3 +58,9 @@ Only one bot per person is allowed. If you submit multiple versions then only yo
 You should submit your solution in a zip file or a repo that supports subdirectories. Your binary executable should be in a subdirectory “bin/” in the project root. If your script requires a special invocation (e.g. java -jar …) please provide a README with instructions.
 Your bot is allowed write to the disk to store data. Your script should write to a unique path in the current directory. Note that during tournament execution, no provisions will be made to handle any file collisions.
 While the responses to a match are indicated as “confess” or “silent,” technically any response other than the word “confess” will be interpreted as “silent”.
+
+### To Install
+- run `composer install`
+
+### To run 
+- run `php index.php <partnerName> <partnerDiscipline> <partnerLastResponse> <myLastResponse>`

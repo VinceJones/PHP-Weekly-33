@@ -3,7 +3,7 @@
 namespace PHPWeekly\Entity;
 
 /**
- * Class Partner
+ * Class Prisoner
  * @package challenge\Entity
  */
 class Prisoner
@@ -12,15 +12,17 @@ class Prisoner
     /**
      * @param string $name
      * @param string $discipline
-     * @param $partnerPreviousResponse
-     * @param $playerPreviousResponse
+     * @param $previousResponse
      */
-    public function __construct($name = 'Buck', $discipline = 'php', $partnerPreviousResponse = "", $playerPreviousResponse = "")
+    public function __construct($name = 'Buck', $discipline = 'php', $previousResponse = "")
     {
+        if ( $previousResponse != 'confess' && $previousResponse != 'silent') {
+            $previousResponse = 'silent';
+        }
+
         $this->name = $name;
         $this->discipline = $discipline;
-        $this->partnerPreviousResponse = $partnerPreviousResponse;
-        $this->playerPreviousResponse = $playerPreviousResponse;
+        $this->previousResponse = $previousResponse;
     }
 
     /**
@@ -33,7 +35,7 @@ class Prisoner
 
     /**
      * @param string $discipline
-     * @return Partner
+     * @return Prisoner
      */
     public function setDiscipline($discipline)
     {
@@ -51,7 +53,7 @@ class Prisoner
 
     /**
      * @param string $name
-     * @return Partner
+     * @return Prisoner
      */
     public function setName($name)
     {
@@ -62,36 +64,19 @@ class Prisoner
     /**
      * @return string
      */
-    public function getPartnerPreviousResponse()
+    public function getPreviousResponse()
     {
-        return $this->partnerPreviousResponse;
+        return $this->previousResponse;
     }
 
     /**
-     * @param string $partnerPreviousResponse
-     * @return Partner
+     * @param string $previousResponse
+     * @return Prisoner
      */
-    public function setPartnerPreviousResponse($partnerPreviousResponse)
+    public function setPreviousResponse($previousResponse)
     {
-        $this->partnerPreviousResponse = $partnerPreviousResponse;
+        $this->previousResponse = $previousResponse;
         return $this;
     }
-
-    /**
-     * @return string
-     */
-    public function getPlayerPreviousResponse()
-    {
-        return $this->playerPreviousResponse;
-    }
-
-    /**
-     * @param string $playerPreviousResponse
-     * @return Partner
-     */
-    public function setPlayerPreviousResponse($playerPreviousResponse)
-    {
-        $this->playerPreviousResponse = $playerPreviousResponse;
-        return $this;
-    }
+    
 }

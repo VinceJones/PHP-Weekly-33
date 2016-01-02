@@ -4,31 +4,28 @@ namespace PHPWeekly\Factory;
 
 use PHPWeekly\Entity\Prisoner;
 
+/**
+ * Class PrisonerFactory
+ * @package PHPWeekly\Factory
+ */
 class PrisonerFactory
 	{
 
 	/**
-	 * PrisonerFactory constructor.
-	 */
-	public function __construct()
+	 * @param string $name
+	 * @param string $discipline
+	 * @param string $previousResponse
+     */
+	public function __construct( $name = 'Buck', $discipline = 'php', $previousResponse = "silent" )
 	{
-		$this->name = $argv[1];
-		$this->dicipline = $argv[2];
-		$this->previousResponse = $argv[3];
+
+		if ( $previousResponse != 'confess' || $previousResponse != 'silent' ) {
+			$previousResponse = 'silent';
+		}
+
+		return new Prisoner($name, $discipline, $previousResponse);
 	}
 
-	public function make()
-	{
-		strtolower("BUCK");
-		$argv[3] === 'confess' || $argv[3] === 'silent' ? $this->previousResponse = $argv[3] : $this->previousResponse = 'silent';
-
-		return new Prisoner($this->name, $this->dicipline, $this->previousResponse);
-	}
+	
 
 }
-
-/**
- * 1. Make all arguments lowercase
- * 2. Assign them to variables
- * 3. Create Prisoner
- */

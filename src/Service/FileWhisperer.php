@@ -10,15 +10,19 @@ use PHPWeekly\Entity\Prisoner;
  */
 class FileWhisperer {
 
+
 	/**
-	 * @param string $discipline
-	 * @param string $name
-	 */
-	public function __construct( $discipline = '', $name = 'UncleBuck' )
+	 * @param Prisoner $prisoner
+     */
+	public function __construct( Prisoner $prisoner )
 	{
-		if ( !file_exists("data/".$discipline."-".$name."txt") ) {
-			$this->file = fopen( "data/" . $discipline . "-" . $name . "txt", "w" );
+		$this->fileName = "data/" .$prisoner->getDiscipline(). "-" . $prisoner->getName().".txt";
+
+		if ( file_exists($this->fileName) ) {
+			return;
 		}
+
+		$this->file = fopen( $this->fileName, "w" );
 	}
 
 	/**
@@ -28,20 +32,45 @@ class FileWhisperer {
 	 */
 	public function writeFile(Prisoner $prisoner)
 	{
+		$txt = $this->readFile();
+		$txt .= strtolower($prisoner->getPreviousResponse()).PHP_EOL;
+		file_put_contents($this->fileName, $txt);
 
-		$txt = $prisoner->getPartnerPreviousResponse().PHP_EOL;
-		fwrite($this->file, $txt);
-		fclose($this->file);
-		return true;
+		return;
+	}
+
+
+	/**
+	 * @return string
+     */
+	public function readFile()
+	{
+		$file = file_get_contents($this->fileName);
+		return $file;
 	}
 
 	/**
-	 * @param \PHPWeekly\Entity\Prisoner $prisoner
-	 *
 	 * @return array
-	 */
-	public function readFile(Prisoner $prisoner)
+     */
+	public function fileArray()
 	{
-		return file($this->file);
+		return file($this->fileName);
+	}
+
+	/**
+	 * @return array
+     */
+	public function explodeFile()
+	{
+		$file = $this->readFile();
+		$answers = explode(PHP_EOL, $file);
+		return $answers;
+
+	}
+
+	public function countFile()
+	{
+		$file = $this->explodeFile();
+		return count($file);
 	}
 }
