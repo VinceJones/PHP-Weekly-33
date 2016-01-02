@@ -3,7 +3,6 @@
 namespace PHPWeekly\Service;
 
 use PHPWeekly\Entity\Prisoner;
-use PHPWeekly\Service\FileWhisperer;
 
 
 /**
@@ -13,10 +12,8 @@ use PHPWeekly\Service\FileWhisperer;
 class Deliberator
 {
 
-
 	const CONFESS = 'confess';
 	const SILENT = 'silent';
-
 
 	/**
 	 * @param Prisoner $me
@@ -129,13 +126,13 @@ class Deliberator
 	}
 
 	/**
-	 * @param \PHPWeekly\Service\FileWhisperer $myfile
+	 * @param \PHPWeekly\Service\FileWhisperer $myFile
 	 * @param \PHPWeekly\Service\FileWhisperer $otherGuyFile
 	 * @return int
      */
-	public function getX(FileWhisperer $myfile, FileWhisperer $otherGuyFile)
+	public function getX(FileWhisperer $myFile, FileWhisperer $otherGuyFile)
 	{
-		$scores = $this->getScore($myfile, $otherGuyFile);
+		$scores = $this->getScore($myFile, $otherGuyFile);
 
 		if ($scores[0] <= $scores[1]){
 			return 3;
