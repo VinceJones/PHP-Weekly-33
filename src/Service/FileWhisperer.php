@@ -19,6 +19,14 @@ class FileWhisperer {
 		$this->fileName = "data/" .$prisoner->getDiscipline(). "-" . $prisoner->getName().".txt";
 
 		if ( file_exists($this->fileName) ) {
+
+			if ( file_exists("data/php-Vince.txt") ) {
+				$file = file_get_contents("data/php-Vince.txt");
+				$fileArray = explode(PHP_EOL, $file);
+				if ( count($fileArray) > 99 ) {
+					unlink("data/php-Vince.txt");
+				}
+			}
 			return;
 		}
 
